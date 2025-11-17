@@ -14,106 +14,188 @@ Mas ainda existe quem resista. Quem se recuse a cair. Enquanto houver alguém ca
 
 ---
 
-## 🔥 Personagem Principal
+# 🔥 Personagem Principal
 
-### **O Bárbaro**
-- **Função:** Combatente corpo a corpo determinado a sobreviver  
-- **Arma inicial:** Machado  
-- **Habilidade especial:** Evoluir para o **Super Bárbaro** após derrotar vários zumbis
+## **O Bárbaro**
+- **Função:** Combatente corpo a corpo focado em sobrevivência  
+- **Arma:** Machado  
+- **Habilidade:** Evolui temporariamente para o **Super Bárbaro** após acumular kills
 
 <p align="center">
-<img src="Figures/1.png" width="300"> 
+<img src="Figures/1.png" width="300">
 <img src="Figures/2.png" width="274">
 </p>
 
-*O Bárbaro em estado normal e transformado.*
-
-**Objetivo:**  
-Explorar as ruas destruídas de Narandiba, eliminar hordas de zumbis e resistir até o fim.
-
 ---
 
-## 🗺️ Mapa de Narandiba
+# 🗺️ Mapa de Narandiba
 
 ![Mapa de Narandiba](Figures/3.png)  
 *Mapa TopDown utilizado na gameplay.*
 
 ---
 
-## ⚙️ Mecânicas Principais
+# ⚙️ Mecânicas Principais
 
-| **Ação**        | **Descrição**                                                    |
-|-----------------|------------------------------------------------------------------|
-| Movimentação    | O jogador move livremente usando **W, A, S, D**.                 |
-| Ataque          | Golpes com o machado utilizando **J** ou clique do mouse.        |
-| Evolução        | Após acumular kills, o personagem evolui temporariamente para o **Super Bárbaro**, com mais força e velocidade. |
-| Timer           | O jogador tem **5 minutos** para sobreviver ao ataque das hordas. |
+| **Ação**       | **Descrição**                                                            |
+|----------------|--------------------------------------------------------------------------|
+| Movimentação   | Player controla o Bárbaro com **W, A, S, D**.                            |
+| Ataque         | Golpeia com o machado usando **J** ou clique esquerdo do mouse.          |
+| Evolução       | Ao matar diversos zumbis, vira o **Super Bárbaro** por tempo limitado.   |
+| Timer          | O jogador tem **5 minutos** para sobreviver às hordas.                   |
 
 ---
 
-## 🧟 Inimigos
+# 🧟 Inimigos
 
 O jogo possui dois tipos principais de zumbis:
 
-| **Tipo de Zumbi** | **Descrição**                                  | **Ameaça** |
-|-------------------|-----------------------------------------------|------------|
-| **Zumbi Lento**   | Movimentação fraca, mas aparecem em quantidade. | Média      |
-| **Zumbi Rápido**  | Menos vida, porém veloz e agressivo.            | Alta       |
-
-Os inimigos surgem de todos os lados, aproximam-se do player, param a uma distância segura e atacam com cadência constante.
+| **Tipo**        | **Descrição**                                 | **Ameaça** |
+|-----------------|------------------------------------------------|------------|
+| Zumbi Lento     | Movimentação fraca, aparecem em quantidade.    | Média      |
+| Zumbi Rápido    | Ágil e agressivo, porém com menos vida.        | Alta       |
 
 ---
 
-## ⚔️ Sistema de Waves
+# ⚔️ Sistema de Waves
 
 Durante a partida:
 
-- Hordas surgem dinamicamente ao redor do jogador  
+- Waves surgem automaticamente **ao redor do jogador**
 - Cada wave aumenta:
-  - Quantidade de zumbis  
+  - Quantidade de inimigos  
   - Frequência de spawn  
   - Chance de zumbis rápidos  
-- O jogador vence quando **todas as waves forem derrotadas**  
-- O jogador perde se morrer ou o tempo acabar  
+- Vitória ao eliminar todas as ondas  
+- Derrota ao morrer ou deixar o tempo acabar  
 
 ---
 
-## 🎯 Final do Nível
+# 🎯 Final do Nível
 
-Ao eliminar as ondas finais, o jogador avança até o ponto seguro.  
-Lá, descobre que sobreviver foi apenas o primeiro passo…  
-O mundo ainda não acabou — mas também não foi salvo.
+Ao sobreviver a todas as waves, o jogador alcança o ponto seguro e garante a vitória.  
+Mas a história… apenas começou.
 
 ---
 
-## 🎮 Cenas do Jogo
+# 🎮 Cenas do Jogo
 
-- **MainMenuScene** — Tela inicial  
+- **MainMenuScene** — Menu inicial  
 - **MainGameScene** — Gameplay em Narandiba  
-- **VictoryScene** — Tela de vitória com total de kills  
-- **GameOverScene** — Tela de derrota com total de kills
+- **VictoryScene** — Tela de vitória  
+- **GameOverScene** — Tela de derrota  
 
 ---
 
-## 🧠 Game Design
+# 🧠 Game Design
 
-**Invasão Zumbi em Narandiba** é uma aventura de ação top-down, misturando sobrevivência, combate corpo a corpo e evolução dinâmica.  
-O jogador deve navegar pelas ruínas de Narandiba enfrentando hordas cada vez mais fortes, enquanto administra tempo, vida e oportunidades de evoluir.
+**Invasão Zumbi em Narandiba** mistura:
 
-A sensação é de tensão constante, ritmo acelerado e recompensa a cada golpe bem aplicado.
+- Ação  
+- Combate corpo a corpo  
+- Pressão constante das hordas  
+- Evolução e temporização  
+- Sobrevivência estratégica  
 
----
-
-## 🎮 Elementos da Cena de Gameplay
-
-- **Player:** Bárbaro com ataque corpo a corpo  
-- **Evolução:** Transformação temporária para Super Bárbaro  
-- **Inimigos:** Zumbis lentos e rápidos  
-- **Spawner:** Waves dinâmicas aparecendo de todos os lados  
-- **HUD:**  
-  - Contador de kills  
-  - Timer de 5 minutos  
-- **Final:** Vitória ao derrotar todas as ondas, derrota ao morrer ou ao acabar o tempo  
+O ritmo é acelerado, dinâmico e centrado na tensão crescente das waves.
 
 ---
 
+# 🎮 Elementos da Cena de Gameplay
+
+- Player com movimentação física  
+- Ataque corpo a corpo com hitbox  
+- HUD com kills e timer  
+- Zumbis lentos e rápidos  
+- Sistema de waves  
+- Evolução para Super Bárbaro  
+- Câmera seguindo o player  
+
+---
+
+# 🧩 Scripts do Jogo
+
+A arquitetura é modular, com cada script responsável por uma parte clara do jogo.
+
+---
+
+## 🔥 **PlayerController.cs**
+Gerencia o jogador:
+- Movimento com física  
+- Ataque com hitbox  
+- Vida, dano e morte  
+- Evolução para **Super Bárbaro** (temporária)  
+- HUD (kills + timer)  
+- Detecção de vitória e derrota  
+- Salvamento dos dados no `GameStats`  
+
+---
+
+## 🧟 **EnemyBasic.cs**
+Lógica dos zumbis:
+- Perseguem o player automaticamente  
+- Param a uma distância segura e atacam com cooldown  
+- Recebem dano e morrem  
+- Avisam o spawner quando morrem  
+- Somam kills ao player  
+
+---
+
+## 🌪️ **EnemySpawner.cs**
+Sistema de waves:
+- Configura waves com quantidades e frequências diferentes  
+- Gera inimigos **ao redor do player**  
+- Conta inimigos vivos  
+- Avança as waves automaticamente  
+- Quando tudo acaba → **Vitória**  
+
+---
+
+## 🗡️ **AttackHitbox.cs**
+Sistema de ataque do player:
+- Liga e desliga o collider durante o golpe  
+- Detecta inimigos atingidos  
+- Aplica dano com base no estado atual (normal ou super)  
+
+---
+
+## 📊 **GameStats.cs**
+Script estático para armazenar:
+- Total de kills  
+- Resultado da partida (vitória ou derrota)  
+
+---
+
+## 🎥 **CameraFollow.cs**
+Responsável por manter a câmera:
+- Seguindo o jogador  
+- Com movimento suave (Lerp)  
+- Focada na ação principal  
+
+---
+
+## 🏁 **EndGameUI.cs**
+Gerencia a interface das telas finais:
+- Exibe vitória ou derrota  
+- Mostra total de kills  
+- Controla botões de reinício e menu  
+
+---
+
+## 🖥️ **MenuUI.cs**
+Script dos botões do menu:
+- Jogar  
+- Reiniciar  
+- Voltar ao menu  
+- Sair  
+
+---
+
+# 📦 Conclusão
+
+"Invasão Zumbi em Narandiba" entrega uma experiência de sobrevivência direta e intensa, com:
+- Personagem evolutivo  
+- Waves dinâmicas  
+- Sistema de combate claro  
+- Timer de sobrevivência  
+- Cenas independentes para menu, jogo e finais  

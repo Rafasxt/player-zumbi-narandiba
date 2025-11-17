@@ -1,86 +1,119 @@
-## Invasão Zumbi em Narandiba
+# 🧟‍♂️ Invasão Zumbi em Narandiba
 
 ![Zumbi](Figures/0.png)
 
-O mundo não acabou de uma vez. Foi aos poucos — silenciosamente, como a febre que começa com um arrepio. As cidades caíram antes mesmo que percebessem o que estavam enfrentando. A civilização se apagou em meio a sirenes, gritos e telas que transmitiam o caos até o último segundo.
+O mundo não acabou de uma vez. Ele desmoronou em silêncio — como a febre que começa com um arrepio. As cidades tombaram sem entender contra o quê lutavam. Sirenes, gritos e transmissões caóticas foram engolidas pela noite, até que restou apenas o silêncio.
 
-Agora, as ruas estão vazias. O que antes era vida, virou ruína. Prédios cobertos de poeira, carros parados no meio das avenidas, portas entreabertas que sussurram lembranças do que existiu. O vento arrasta papéis, vozes perdidas, ecos de um passado que ninguém mais pode alcançar.
+Hoje, Narandiba é um labirinto de memórias mortas. Ruas vazias, carros abandonados, portas entreabertas que guardam histórias que ninguém mais contará. O vento sopra papéis, poeira e lembranças de um passado que desapareceu.
 
-Os vivos se tornaram raros. Alguns se escondem, outros lutam para sobreviver... e há aqueles que já não lembram por que ainda lutam. A fome, o medo e a solidão corroem mais rápido do que qualquer ferida. A cada dia, resta menos esperança — e mais monstros, dentro e fora das pessoas.
+Os vivos se tornaram raros. Alguns fogem, outros se escondem. Muitos já esqueceram por que continuam. A fome, o medo e a solidão são mais fatais que os próprios mortos. A cada amanhecer, a esperança se desfaz um pouco mais.
 
-Mas mesmo entre as cinzas, ainda há quem acredite. Quem se recuse a aceitar o fim. Porque enquanto houver alguém respirando, caminhando, olhando o horizonte em busca de outro sobrevivente... a história ainda não acabou.
+Mas ainda existe quem resista. Quem se recuse a cair. Enquanto houver alguém caminhando pelas ruas, enquanto houver um último golpe de coragem… a história continua.
 
-Eles declaram que **Narandiba** será o primeiro passo para a destruição do mundo.
+É nesse cenário que **Narandiba** se torna o palco do início — ou do fim — de tudo.
 
 ---
 
-### Personagem Principal
+## 🔥 Personagem Principal
 
-* **Nome:** Sargento Nascimento
-* **Função:** Ex-militar especializado em operações urbanas
-* **Arma inicial:** Machado
-* **Habilidade especial:** Atacar com o machado
-
+### **O Bárbaro**
+- **Função:** Combatente corpo a corpo determinado a sobreviver  
+- **Arma inicial:** Machado  
+- **Habilidade especial:** Evoluir para o **Super Bárbaro** após derrotar vários zumbis
 
 <p align="center">
-<img src="Figures/1.png" width="300"> <img src="Figures/2.png" width="274">
+<img src="Figures/1.png" width="300"> 
+<img src="Figures/2.png" width="274">
 </p>
 
-*Player nos dois estados da cena: primeiro em idle com o machado, e segundo transformado devido ao bônus obtido.*
+*O Bárbaro em estado normal e transformado.*
 
-**Objetivo:**
-Correr pelas ruas devastadas em direção ao ponto de evacuação, eliminando zumbis e desviando de obstáculos urbanos.
-
----
-
-### Mapa de Narandiba
-
-![Mapa de Narandiba](Figures/3.png)
-*Mapa TopDown de Narandiba*
+**Objetivo:**  
+Explorar as ruas destruídas de Narandiba, eliminar hordas de zumbis e resistir até o fim.
 
 ---
 
-### Mecânicas Principais
+## 🗺️ Mapa de Narandiba
 
-| **Ação**               | **Descrição**                                                                               |
-| ---------------------- | ------------------------------------------------------------------------------------------- |
-| Correr automaticamente | O personagem corre em ritmo constante; o jogador controla as machadadas e os deslocamentos. |
-| Ataque                 | Elimina zumbis que bloqueiam o caminho.                                                     |
+![Mapa de Narandiba](Figures/3.png)  
+*Mapa TopDown utilizado na gameplay.*
 
 ---
 
-### Inimigos
+## ⚙️ Mecânicas Principais
 
-| **Tipo de Zumbi**   | **Descrição**                                 | **Ameaça** |
-| ------------------- | --------------------------------------------- | ---------- |
-| Andarilho           | Lento, aparece em grupos.                     | Média     |
-
-
----
-
-### Final do Nível
-
-**Cena:**
-O jogador atravessa uma horda de zumbis finais e entra no refúgio.
+| **Ação**        | **Descrição**                                                    |
+|-----------------|------------------------------------------------------------------|
+| Movimentação    | O jogador move livremente usando **W, A, S, D**.                 |
+| Ataque          | Golpes com o machado utilizando **J** ou clique do mouse.        |
+| Evolução        | Após acumular kills, o personagem evolui temporariamente para o **Super Bárbaro**, com mais força e velocidade. |
+| Timer           | O jogador tem **5 minutos** para sobreviver ao ataque das hordas. |
 
 ---
 
-## Game Design
+## 🧟 Inimigos
 
-O **Invasão Zumbi em Narandiba** é uma jornada épica de ação e aventura em um mundo repleto de mistérios e perigos. Com sua narrativa envolvente e habilidades evolutivas, os jogadores explorarão a cidade abandonada e cheia de zumbis, desvendando segredos que ajudarão o personagem a sobreviver.
+O jogo possui dois tipos principais de zumbis:
 
-O jogo 2D mistura elementos clássicos de *thriller* com uma história rica e envolvente, tornando-o uma experiência emocionante para os fãs do gênero.
+| **Tipo de Zumbi** | **Descrição**                                  | **Ameaça** |
+|-------------------|-----------------------------------------------|------------|
+| **Zumbi Lento**   | Movimentação fraca, mas aparecem em quantidade. | Média      |
+| **Zumbi Rápido**  | Menos vida, porém veloz e agressivo.            | Alta       |
 
-Será disponibilizado todo o pacote com todos os *assets*, mas **NÃO** será necessário o uso de todos.
+Os inimigos surgem de todos os lados, aproximam-se do player, param a uma distância segura e atacam com cadência constante.
 
 ---
 
-### Elementos da Cena do Gameplay
+## ⚔️ Sistema de Waves
 
-* **Habilidades do Player:** Atacar com um machado.
-* **Progressão:** O player ganha novas habilidades ao derrotar uma certa quantidade de zumbis. O superpoder será um novo corpo com ataques mais fortes e efetivos.
-* **Clímax e Final:** Após derrotar a horda de zumbis, o player descobre que o refúgio poderá não ser tão seguro.
+Durante a partida:
 
+- Hordas surgem dinamicamente ao redor do jogador  
+- Cada wave aumenta:
+  - Quantidade de zumbis  
+  - Frequência de spawn  
+  - Chance de zumbis rápidos  
+- O jogador vence quando **todas as waves forem derrotadas**  
+- O jogador perde se morrer ou o tempo acabar  
 
+---
 
+## 🎯 Final do Nível
+
+Ao eliminar as ondas finais, o jogador avança até o ponto seguro.  
+Lá, descobre que sobreviver foi apenas o primeiro passo…  
+O mundo ainda não acabou — mas também não foi salvo.
+
+---
+
+## 🎮 Cenas do Jogo
+
+- **MainMenuScene** — Tela inicial  
+- **MainGameScene** — Gameplay em Narandiba  
+- **VictoryScene** — Tela de vitória com total de kills  
+- **GameOverScene** — Tela de derrota com total de kills
+
+---
+
+## 🧠 Game Design
+
+**Invasão Zumbi em Narandiba** é uma aventura de ação top-down, misturando sobrevivência, combate corpo a corpo e evolução dinâmica.  
+O jogador deve navegar pelas ruínas de Narandiba enfrentando hordas cada vez mais fortes, enquanto administra tempo, vida e oportunidades de evoluir.
+
+A sensação é de tensão constante, ritmo acelerado e recompensa a cada golpe bem aplicado.
+
+---
+
+## 🎮 Elementos da Cena de Gameplay
+
+- **Player:** Bárbaro com ataque corpo a corpo  
+- **Evolução:** Transformação temporária para Super Bárbaro  
+- **Inimigos:** Zumbis lentos e rápidos  
+- **Spawner:** Waves dinâmicas aparecendo de todos os lados  
+- **HUD:**  
+  - Contador de kills  
+  - Timer de 5 minutos  
+- **Final:** Vitória ao derrotar todas as ondas, derrota ao morrer ou ao acabar o tempo  
+
+---
 

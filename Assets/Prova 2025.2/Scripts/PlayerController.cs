@@ -1,5 +1,6 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -12,29 +13,35 @@ public class PlayerController : MonoBehaviour
     [Header("Ataque")]
     public int attackDamage = 1;
     public int superAttackDamage = 2;
-    public float attackCooldown = 0.4f;
+    public float attackCooldown = 0.6f;
     public AttackHitbox attackHitbox; 
 
     [Header("Vida")]
     public int maxHealth = 5;
     public int currentHealth;
 
-    [Header("Evolução")]
-    public int killsToTransform = 15;
+    [Header("EvoluÃ§Ã£o / Super BÃ¡rbaro")]
+    public int killsToTransform = 10;     
     public bool isSuperBarbarian = false;
 
-    [Header("Referências")]
+    [Header("Estado do Jogo")]
+    public bool hasWon = false;           
+
+    [Header("ReferÃªncias")]
     public Animator animator;
     public SpriteRenderer spriteRenderer;
 
     private Rigidbody2D rb;
-    private float horizontalInput;
+    private Vector2 inputDir;
     private bool isAttacking = false;
     private float lastAttackTime = -999f;
     private bool isDead = false;
+    private int facingDir = 1; 
+
+    public bool IsDead => isDead; 
 
     
-    public bool IsDead => isDead;
+    public int currentKills = 0;
 
     void Awake()
     {
@@ -54,17 +61,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (isDead) return;
+        if (isDead || hasWon) return;
 
         HandleInput();
         HandleAttackInput();
         UpdateAnimations();
+        UpdateAttackHitboxFlip();
     }
 
     void FixedUpdate()
     {
-        if (isDead) return;
-
+        if (isDead || hasWon) return;
         HandleMovement();
     }
 
@@ -73,25 +80,36 @@ public class PlayerController : MonoBehaviour
     {
         if (!canMove || isAttacking)
         {
-            horizontalInput = 0f;
-            if (rb != null) rb.velocity = Vector2.zero;
+            inputDir = Vector2.zero;
+            rb.velocity = Vector2.zero;
             return;
         }
 
-        horizontalInput = Input.GetAxisRaw("Horizontal");
+        float h = Input.GetAxisRaw("Horizontal"); 
+        float v = Input.GetAxisRaw("Vertical");   
 
-        if (horizontalInput > 0.01f)
-            spriteRenderer.flipX = false;
-        else if (horizontalInput < -0.01f)
-            spriteRenderer.flipX = true;
+        inputDir = new Vector2(h, v).normalized;
+
+        
+        if (h > 0.01f)
+        {
+            facingDir = 1;
+            if (spriteRenderer != null)
+                spriteRenderer.flipX = false;
+        }
+        else if (h < -0.01f)
+        {
+            facingDir = -1;
+            if (spriteRenderer != null)
+                spriteRenderer.flipX = true;
+        }
     }
 
     
     void HandleMovement()
     {
         float speed = isSuperBarbarian ? superMoveSpeed : moveSpeed;
-        Vector2 velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
-        rb.velocity = velocity;
+        rb.velocity = inputDir * speed;
     }
 
     
@@ -105,7 +123,7 @@ public class PlayerController : MonoBehaviour
 
     void TryAttack()
     {
-        if (isAttacking || isDead) return;
+        if (isAttacking || isDead || hasWon) return;
 
         if (Time.time - lastAttackTime < attackCooldown)
             return;
@@ -121,18 +139,21 @@ public class PlayerController : MonoBehaviour
         if (animator != null)
             animator.SetTrigger("Attack");
 
+        float hitWindow = 0.2f; 
         if (attackHitbox != null)
         {
             attackHitbox.EnableHitbox(true);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(hitWindow);
             attackHitbox.EnableHitbox(false);
         }
         else
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(hitWindow);
         }
 
-        yield return new WaitForSeconds(attackCooldown - 0.1f);
+        float rest = Mathf.Max(0f, attackCooldown - hitWindow);
+        if (rest > 0f)
+            yield return new WaitForSeconds(rest);
 
         isAttacking = false;
     }
@@ -145,7 +166,7 @@ public class PlayerController : MonoBehaviour
     
     public void TakeDamage(int amount)
     {
-        if (isDead) return;
+        if (isDead || hasWon) return;
 
         currentHealth -= amount;
         currentHealth = Mathf.Max(currentHealth, 0);
@@ -168,19 +189,18 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.zero;
 
         if (animator != null)
-        {
             animator.SetTrigger("Die");
-        }
 
         Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false;
 
+        Debug.Log("GAME OVER: o jogador morreu.");
+
         
+        SceneManager.LoadScene("GameOverScene");
     }
 
     
-    public int currentKills = 0;
-
     public void AddKill()
     {
         currentKills++;
@@ -193,7 +213,28 @@ public class PlayerController : MonoBehaviour
 
     void BecomeSuperBarbarian()
     {
+        if (isSuperBarbarian) return;
+
         isSuperBarbarian = true;
+
+        
+        if (animator != null)
+            animator.SetBool("IsSuper", true);
+
+        
+        transform.localScale *= 1.2f;
+
+        if (spriteRenderer != null)
+            spriteRenderer.color = new Color(1f, 0.85f, 0.6f); 
+    }
+
+    
+    public void SetWin()
+    {
+        if (hasWon) return;
+        hasWon = true;
+        canMove = false;
+        rb.velocity = Vector2.zero;
     }
 
     
@@ -201,6 +242,19 @@ public class PlayerController : MonoBehaviour
     {
         if (animator == null || rb == null) return;
 
-        animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        float speed = rb.velocity.magnitude;
+        animator.SetFloat("Speed", speed);
+    }
+
+    
+    void UpdateAttackHitboxFlip()
+    {
+        if (attackHitbox == null) return;
+
+        float offsetX = 0.5f;
+        float offsetY = -0.1f;
+
+        attackHitbox.transform.localPosition =
+            new Vector3(offsetX * facingDir, offsetY, 0);
     }
 }

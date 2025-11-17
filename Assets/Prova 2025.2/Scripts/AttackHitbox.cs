@@ -9,7 +9,10 @@ public class AttackHitbox : MonoBehaviour
     {
         col = GetComponent<Collider2D>();
         if (col != null)
-            col.enabled = false; 
+        {
+            col.isTrigger = true;
+            col.enabled = false;
+        }
     }
 
     public void SetOwner(PlayerController player)
@@ -25,6 +28,7 @@ public class AttackHitbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!col.enabled) return;
         if (owner == null) return;
 
         IDamageable dmg = other.GetComponent<IDamageable>();

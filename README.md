@@ -54,10 +54,8 @@ Correr pelas ruas devastadas em direção ao ponto de evacuação, eliminando zu
 
 | **Tipo de Zumbi**   | **Descrição**                                 | **Ameaça** |
 | ------------------- | --------------------------------------------- | ---------- |
-| Andarilho           | Lento, aparece em grupos.                     | Baixa      |
-| Corredor Infectado  | Ágil, surge de becos.                         | Média      |
-| Explosivo (Mutante) | Carrega um tanque de gás; ao morrer, explode. | Alta       |
-| Militar Infectado   | Usa colete; precisa de múltiplos ataques.     | Alta       |
+| Andarilho           | Lento, aparece em grupos.                     | Média     |
+
 
 ---
 
@@ -84,31 +82,6 @@ Será disponibilizado todo o pacote com todos os *assets*, mas **NÃO** será ne
 * **Progressão:** O player ganha novas habilidades ao derrotar uma certa quantidade de zumbis. O superpoder será um novo corpo com ataques mais fortes e efetivos.
 * **Clímax e Final:** Após derrotar a horda de zumbis, o player descobre que o refúgio poderá não ser tão seguro.
 
----
 
-### Condições e Objetivos
-
-Para alcançar o objetivo chave do jogo — passar pela fase enfrentando inimigos e derrotando a horda final — consideram-se:
-
-* A transposição do Player ocorre da esquerda para a direita. Se ele não tocar em inimigos e derrotar a horda final, a vitória é concedida.
-* Devem ser criados inimigos adicionais, com condições de dano impostas pelo programador.
-* A pontuação e as condições de derrota serão definidas pelo programador.
-* O movimento e ataque podem ser controlados via teclado, mouse ou joystick.
-* Deve haver um temporizador decrescente; ao final, surge uma tela com pontuação e resultado (vitória ou derrota).
-* O jogo deve conter uma tela inicial para seleção do Player e exibição dos objetivos e controles.
-
----
-
-### Sugestões
-
-* **NÃO** inserir mais assets além dos disponibilizados na cena do jogo.
-* Base de avaliação: **Unity 2022.3.26f1**.
-* A avaliação seguirá as regras previamente definidas.
-* O trabalho poderá ser individual ou em dupla e deve ser entregue até **17/11/2025 às 13:00h** via *upload* no Google Classroom e apresentado em sala de aula.
-* Quanto mais fiel o jogo for ao descrito, maior será a nota.
-
----
-
-**Boa Sorte!**
 
 

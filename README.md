@@ -46,7 +46,6 @@ Correr pelas ruas devastadas em direção ao ponto de evacuação, eliminando zu
 | ---------------------- | ------------------------------------------------------------------------------------------- |
 | Correr automaticamente | O personagem corre em ritmo constante; o jogador controla as machadadas e os deslocamentos. |
 | Ataque                 | Elimina zumbis que bloqueiam o caminho.                                                     |
-| Coletar suprimentos    | Pacotes de munição e kits médicos espalhados no cenário.                                    |
 
 ---
 
